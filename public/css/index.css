@@ -1,0 +1,9 @@
+@import url("style.css");
+
+h1{
+  font-size: 3rem;
+  color: rgb(215, 245, 215);
+  background-color: darkgreen;
+  border: 2px solid black;
+  cursor: pointer;
+}
