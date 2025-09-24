@@ -1,0 +1,37 @@
+@import url("./rootColor.css");
+@import url("./font.css");
+@import url("./nav.css");
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+.flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexAround{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexBetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column{
+  flex-direction: column;
+}
+
