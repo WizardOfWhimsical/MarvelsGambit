@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
 
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
    //will be the start fo the flow
    console.log("Root endpoint hit");
-   res.status(200).json({message:"Hello from the server!"});
+   res.json({message:"Hello from the server!"});
 });
 
 app.listen(config.port, () => {
