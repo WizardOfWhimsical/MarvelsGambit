@@ -5,6 +5,6 @@ btn.addEventListener('click', () => {
 
     fetch("/test")
     .then(r => r.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data.data.results))
     .catch(err => console.error('Error fetching from server:', err));
 });
