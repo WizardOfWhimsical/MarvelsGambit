@@ -14,7 +14,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "md5": "^2.3.0"
   },
   "devDependencies": {
     "morgan": "^1.10.1",
