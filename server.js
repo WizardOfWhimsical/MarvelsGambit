@@ -12,7 +12,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("./public"));
+app.use(express.static("./root"));
 
 const ts = new Date().getTime();
    const publicKey = process.env.PUBLIC_KEY;
