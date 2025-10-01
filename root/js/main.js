@@ -7,11 +7,10 @@ btn.addEventListener('click', () => {
     fetch("/test")
     .then(r => r.json())
     .then(data => {
-        const entityNavigation = new CharacterEntityNavagation(data);
-let info = entityNavigation.setNavigation(navContainer);
-        console.log(entityNavigation)
-        console.log(info)
-        console.log("Data received from server:", data);
+        const entityNavigation = new CharacterEntityNavigation(data);
+        entityNavigation.setNavigation(navContainer);
+        // console.log(entityNavigation)
+        // console.log("Data received from server:", data);
     })
     .catch(err => console.error('Error fetching from server:', err));
 });

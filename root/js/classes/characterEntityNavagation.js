@@ -1,4 +1,4 @@
-class CharacterEntityNavagation {
+class CharacterEntityNavigation {
   constructor(dataObject){
     this.seriesURL = dataObject.data.results[0].series.collectionURI;
     // this.comicsURL = dataObject.data.results[0].comics.collectionURI;
