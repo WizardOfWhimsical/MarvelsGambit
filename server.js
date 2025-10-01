@@ -21,10 +21,14 @@ const ts = new Date().getTime();
 
 app.get("/test", (req, res) => {
    //will build routes based off char, comics, series, stories, events
+   const url = `https://gateway.marvel.com/v1/public/characters?name=Gambit&ts=${ts}&apikey=${publicKey}&hash=${hash}` ////character by name Gambit
    
-   console.log("Root endpoint hit");
-fetch(`https://gateway.marvel.com/v1/public/characters?name=Gambit&ts=${ts}&apikey=${publicKey}&hash=${hash}`)
+   // const url = `https://gateway.marvel.com/v1/public/characters/1009313/series?ts=${ts}&apikey=${publicKey}&hash=${hash}`////series by characterId Gambit
+      console.log("Root endpoint hit");
+   
+fetch(url)
 .then(response => {
+   console.log(url)
    if(!response.ok) {
       console.log("ServerFetchTest: ", response.status);
       throw new Error("Network response was not ok");
