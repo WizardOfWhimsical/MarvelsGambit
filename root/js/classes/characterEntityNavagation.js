@@ -31,7 +31,7 @@ class CharacterEntityNavigation {
     container.addEventListener("click", (e) => {
       let target = e.target.dataset.url;
       console.log("Clicked on: ", target);
-      // fetch("/entity/" + target)
+      fetch(`/entity?${target}`)
       return container;
     })
   }
