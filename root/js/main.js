@@ -1,16 +1,19 @@
-const btn = document.getElementById('myBtn');
-const navContainer = document.querySelector('nav');
+const characterNavigation = document.getElementById("entityNavigation");
 
-btn.addEventListener('click', () => {
-    console.log('Button was clicked!');
+fetchCharacterData('Gambit').then(data => {
+    console.log('Character Data:', data);
+    const gambit = new CharacterEntityNavigation(data);
 
-    fetch("/test")
-    .then(r => r.json())
-    .then(data => {
-        const entityNavigation = new CharacterEntityNavigation(data);
-        entityNavigation.setNavigation(navContainer);
-        // console.log(entityNavigation)
-        // console.log("Data received from server:", data);
-    })
-    .catch(err => console.error('Error fetching from server:', err));
+    gambit.setNavigation(characterNavigation);
+    // You can add more logic here to handle the fetched data
 });
+
+/**
+ * adding eventlisterner i think wll be smater on this page or utils.js, talk with mentor and find out
+ * container.addEventListener("click", (e) => {
+      let target = e.target.dataset.url;
+      console.log("Clicked on: ", target);
+      fetch(`/entity?${target}`)
+      return container;
+    })
+ */

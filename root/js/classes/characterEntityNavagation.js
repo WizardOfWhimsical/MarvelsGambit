@@ -9,10 +9,10 @@ class CharacterEntityNavigation {
     return document.createElement('div');
   }
   createEnityNavigation(){
-    const seriesEl = this.createElement();
-    const storiesEl = this.createElement();
-    const eventsEl = this.createElement();
-    return {series:seriesEl, stories:storiesEl, events:eventsEl};
+    const series = this.createElement();
+    const stories = this.createElement();
+    const events = this.createElement();
+    return {series, stories, events};
   }
   setNavigationAttributes(){
     const {series, stories, events} = this.createEnityNavigation();
@@ -26,13 +26,8 @@ class CharacterEntityNavigation {
     return {series, stories, events};
   }
   setNavigation(container){
-    const {series, stories, events} = this.setNavigationAttributes();
-    container.append(events, series, stories)
-    container.addEventListener("click", (e) => {
-      let target = e.target.dataset.url;
-      console.log("Clicked on: ", target);
-      fetch(`/entity?${target}`)
-      return container;
-    })
+    try{    const {series, stories, events} = this.setNavigationAttributes();
+    container.append(events, series, stories)}catch{err => console.error("Navigation Error: ", err)}
+
   }
 }

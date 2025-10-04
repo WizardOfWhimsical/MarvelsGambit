@@ -19,11 +19,9 @@ const ts = new Date().getTime();
    const privateKey = process.env.PRIVATE_KEY;
    const hash = md5(ts + privateKey + publicKey);
 
-app.get("/test", (req, res) => {
-   //will build routes based off char, comics, series, stories, events
-   const url = `https://gateway.marvel.com/v1/public/characters?name=Gambit&ts=${ts}&apikey=${publicKey}&hash=${hash}` ////character by name Gambit
-   
-   // const url = `https://gateway.marvel.com/v1/public/characters/1009313/series?ts=${ts}&apikey=${publicKey}&hash=${hash}`////series by characterId Gambit
+app.get("/api/characters", (req, res) => {
+
+   const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
       console.log("Root endpoint hit");
    
 fetch(url)
