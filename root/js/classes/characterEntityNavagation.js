@@ -1,9 +1,9 @@
 class CharacterEntityNavigation {
   constructor(dataObject){
-    this.seriesURL = dataObject.data.results[0].series.collectionURI;
+    this.seriesURI = dataObject.data.results[0].series.collectionURI;
     // this.comicsURL = dataObject.data.results[0].comics.collectionURI;
-    this.storiesURL = dataObject.data.results[0].stories.collectionURI;
-    this.eventsURL = dataObject.data.results[0].events.collectionURI;
+    this.storiesURI = dataObject.data.results[0].stories.collectionURI;
+    this.eventsURI = dataObject.data.results[0].events.collectionURI;
   }
   createElement(){
     return document.createElement('div');
@@ -16,18 +16,19 @@ class CharacterEntityNavigation {
   }
   setNavigationAttributes(){
     const {series, stories, events} = this.createEnityNavigation();
-    series.setAttribute("data-url", this.seriesURL);
+    series.setAttribute("data-uri", this.seriesURI);
     series.textContent = "Series";
-    stories.setAttribute("data-url", this.storiesURL);
+    stories.setAttribute("data-uri", this.storiesURI);
     stories.textContent = "Stories";
-    events.setAttribute("data-url", this.eventsURL);
+    events.setAttribute("data-uri", this.eventsURI);
     events.textContent = "Events";
     // found out this is shorthand obj k-v
     return {series, stories, events};
   }
   setNavigation(container){
-    try{    const {series, stories, events} = this.setNavigationAttributes();
-    container.append(events, series, stories)}catch{err => console.error("Navigation Error: ", err)}
-
+    try{    
+      const {series, stories, events} = this.setNavigationAttributes();
+    container.append(events, series, stories)
+    }catch{err => console.error("Navigation Error: ", err)}
   }
 }

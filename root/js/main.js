@@ -8,12 +8,16 @@ fetchCharacterData('Gambit').then(data => {
     // You can add more logic here to handle the fetched data
 });
 
+
+characterNavigation.addEventListener("click", (e) => {
+      let target = e.target.dataset.uri;
+      console.log("Clicked on: ", target);
+    //   fetch(`/entity?${target}`)
+    //   return container;
+    })
+
+
 /**
  * adding eventlisterner i think wll be smater on this page or utils.js, talk with mentor and find out
- * container.addEventListener("click", (e) => {
-      let target = e.target.dataset.url;
-      console.log("Clicked on: ", target);
-      fetch(`/entity?${target}`)
-      return container;
-    })
+ * 
  */
