@@ -2,7 +2,7 @@ class CharacterImageCard {
   constructor(object) {
     this.imageSrc = `${object.data.results[0].thumbnail.path}.${object.data.results[0].thumbnail.extension}`;
     this.name = object.data.results[0].name;
-    console.log("inside class",this.imageSrc, this.name);
+    // console.log("inside class",this.imageSrc, this.name);
   }
 createElements(){
   const imgTag = document.createElement("img");

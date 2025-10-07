@@ -16,7 +16,11 @@ async function fetchEntityData(entityUri) {
   try{
     const response = await fetch(`/api/entity?uri=${entityUri}`);
 
-    if (!response.ok) throw new Error("http error! Response not ok: ", response.status);
+   if (!response.ok) {
+    console.log("Marvel returned:", response.status);
+    const text = await response.text();  // this shows HTML or empty string
+    throw new Error(`Bad response: ${response.status}, body: ${text}`);
+   }
 
     const entityList = await response.json();
     return entityList;

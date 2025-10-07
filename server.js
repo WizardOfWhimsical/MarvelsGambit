@@ -37,21 +37,33 @@ fetch(url)
 .then(data =>{
    console.log("Data fetched from Marvel: ", data);
    res.status(201).json(data);
-} )
+}).catch(err=>{
+   console.log("Error fetching character data SERVERSIDE:", err);
+   res.status(500).json({error: err.message});
 });
 
-app.get("/api/entity", (req,res)=>{
-   const url = `https://gateway.marvel.com/v1/public/${req.query.uri}&ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
+
+app.get("/api/entity", (req,res)=>{
+   console.log("Entity endpoint hit with uri: ", req.query.uri);
+
+   const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+
+   console.log("Entity endpoint hit", url);
    fetch(url)
    .then(response=>{
       if(!response.ok){
-         console.log("entity fetch on server", )
+         console.log("entity fetch !OK on server", response.status);
+         const text = response.text();
+         throw new Error(`Bad response: ${response.status}, body: ${text}`);
       }
    })
    .then(data =>{
       console.log("Entity data fetched from Marvel: ", data);
-      res.status(202).json(data);
+      res.status(201).json(data);
+   }).catch(err=>{
+      console.log("Error fetching entity data SERVERSIDE:", err);
+      res.status(500).json({error: err.message});
    })
 })
 
