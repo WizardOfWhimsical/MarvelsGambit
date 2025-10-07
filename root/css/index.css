@@ -1,12 +1,8 @@
 @import url("style.css");
 
-/* h1{
-  font-size: 3rem;
-  color: rgb(215, 245, 215);
-  background-color: darkgreen;
-  border: 2px solid black;
-  cursor: pointer;
-} */
+/*
+* Outline all elements to see their boundaries
+*/
  *{
   border: 1px solid purple;
  }
@@ -31,7 +27,7 @@ nav{
 }
 
 section:first-child{
-  width:30vw;
+  width:35vw;
   height:75vh;
   background-color: rgba(255, 0, 0, 0.8);
   position: absolute;
@@ -40,7 +36,7 @@ section:first-child{
   z-index: -5;
 }
 
-section:last-child{
+/* section:last-child{
   width:20vw;
   height:75vh;
   background-color: rgba(106, 255, 0, 0.8);
@@ -48,18 +44,17 @@ section:last-child{
   right:0;
   bottom: calc(10vh);
   z-index: -5;
-}
+} */
 
 article{
-  width:50vw;
+  width:65vw;
   height:75vh;
   background-color: rgba(255, 0, 255, 0.8);
   position: absolute;
-  left:calc(30vw);
+  right:0;
   bottom: calc(10vh);
   z-index: -5;
 }
-
 
 footer{
   width: 100%;
@@ -69,4 +64,15 @@ footer{
   bottom:0;
   left:0; 
   z-index: -5;
+}
+
+/*
+just basic card styling
+*/
+
+img{
+  width: 25vw;
+  height:35vh;
+  margin-bottom: 1rem;  
+  /* object-fit: cover; */
 }

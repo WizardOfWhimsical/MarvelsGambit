@@ -2,3 +2,10 @@
  Repeat the portfolio part of the assignment above for this project to be sure that your fetch is working and that you're getting a response. You don't need to display any of it yet, but you should at least be able to console.log the response so you can see what data you get back.
  Put a link to your Open API project repository in the readme.md file of your Portfolio project so your reviewer can easily find/look at your Open API project from your portfolio project. You can add a link to your read me by using the following syntax: [My Open API Project](https://github.com/yourUsernameHere/yourname-open-api) Put the words you want the link to be in hard brackets [ ] and the link to the repository in parentheses ( )
 By the end of this assignment, you should have started on your Open API Project (create a repository, built your basics, and wrote the code for your API fetch to test what response you get back.  You should also see your Open API Project listed on your portfolio by the end of this part of the assignment.
+
+
+This week, focus on accomplishing the following:
+ Start digging deeper on how you want to display content for either or both of the data points for your site.
+ Start getting some basic styling built
+ Build your second fetch for your second data point (or adjust your code so clicking your navigation link for your second data point will change/update your fetch accordingly.
+By the end of this assignment, you should have made additional progress on your Open API Project.  Since you have another assignment due this week, please submit your most recent pull request link in the "questions" field of your assignment submission form if you'd like your reviewer to check your work in progress.

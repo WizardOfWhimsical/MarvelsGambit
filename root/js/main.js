@@ -1,10 +1,13 @@
 const characterNavigation = document.getElementById("entityNavigation");
+const characterCard = document.getElementById("characterCard");
 
 fetchCharacterData('Gambit').then(data => {
     console.log('Character Data:', data);
     const gambit = new CharacterEntityNavigation(data);
+    const gambitCard = new CharacterImageCard(data);
 
     gambit.setNavigation(characterNavigation);
+    gambitCard.renderCharacterImage(characterCard);
     // You can add more logic here to handle the fetched data
 });
 
