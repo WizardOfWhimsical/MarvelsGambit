@@ -15,8 +15,10 @@ fetchCharacterData('Gambit').then(data => {
 characterNavigation.addEventListener("click", (e) => {
       let target = e.target.dataset.uri;
       console.log("Clicked on: ", target);
-    //   fetch(`/entity?${target}`)
-    //   return container;
+      fetchEntityData(target).then(data=>{
+            console.log("Entity Data:", data);
+            // then i do stuff
+      })
     })
 
 

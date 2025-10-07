@@ -40,6 +40,21 @@ fetch(url)
 } )
 });
 
+app.get("/api/entity", (req,res)=>{
+   const url = `https://gateway.marvel.com/v1/public/${req.query.uri}&ts=${ts}&apikey=${publicKey}&hash=${hash}`
+
+   fetch(url)
+   .then(response=>{
+      if(!response.ok){
+         console.log("entity fetch on server", )
+      }
+   })
+   .then(data =>{
+      console.log("Entity data fetched from Marvel: ", data);
+      res.status(202).json(data);
+   })
+})
+
 app.listen(config.port, () => {
    console.log(`Server is running on port ${config.port}`);
 });
