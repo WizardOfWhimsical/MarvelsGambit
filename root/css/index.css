@@ -3,9 +3,9 @@
 /*
 * Outline all elements to see their boundaries
 */
- *{
+ /* *{
   border: 1px solid purple;
- }
+ } */
 
  body{
   width: 100vw;
@@ -55,6 +55,7 @@ article{
   bottom: calc(10vh);
   z-index: -5;
   overflow: auto;
+  padding:1em;
 }
 
 footer{
@@ -74,7 +75,7 @@ just basic card styling
 img{
   width: 25vw;
   height:35vh;
-  margin-bottom: 1rem;  
+  margin-bottom: 1em;  
   /* object-fit: cover; */
 }
 
@@ -82,12 +83,24 @@ img{
 character imformation card styling
 */
 h3{
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.5em;
+  margin: 0.66em 0 0.33em 0;
   padding: 0.66em;
   text-align: center;
 }
 article p {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3em;
    text-indent: 2em;
-   padding:0.66em;
+   padding:0.12em;
+   margin: 0.12em;
+}
+
+article em{
+  display: inline-block;
+  font-size:12px;
+  padding:1em;
+  margin:1em;
+  line-height: 1.4em;
 }
