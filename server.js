@@ -41,6 +41,7 @@ fetch(url)
    console.log("Error fetching character data SERVERSIDE:", err);
    res.status(500).json({error: err.message});
 });
+})
 
 
 
