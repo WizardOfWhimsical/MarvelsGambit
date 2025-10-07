@@ -54,6 +54,7 @@ article{
   right:0;
   bottom: calc(10vh);
   z-index: -5;
+  overflow: auto;
 }
 
 footer{
@@ -75,4 +76,18 @@ img{
   height:35vh;
   margin-bottom: 1rem;  
   /* object-fit: cover; */
+}
+
+/*
+character imformation card styling
+*/
+h3{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.66em;
+  text-align: center;
+}
+article p {
+   text-indent: 2em;
+   padding:0.66em;
 }
