@@ -2,6 +2,7 @@
 
 /*
 * Outline all elements to see their boundaries
+to be replaced with cool BG image later
 */
  /* *{
   border: 1px solid purple;
@@ -66,6 +67,7 @@ footer{
   bottom:0;
   left:0; 
   z-index: -5;
+  padding:1em;
 }
 
 /*
@@ -80,7 +82,7 @@ img{
 }
 
 /*
-character imformation card styling
+character information card styling
 */
 h3{
   font-size: 1.5em;
@@ -103,4 +105,13 @@ article em{
   padding:1em;
   margin:1em;
   line-height: 1.4em;
+}
+
+/*
+footer Contents
+*/
+footer em{
+  padding: 0.33em;
+  margin:0.33em;
+  font-size: 1.3em;
 }
