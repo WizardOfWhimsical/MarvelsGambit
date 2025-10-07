@@ -7,7 +7,22 @@ async function fetchCharacterData(characterName) {
     const characterData = await response.json();
     // this returns the fullfilled promise as data, no more chaining needed
     return characterData;
-  }catch{}
+  }catch (error) {
+    console.log('try/catch of characterDataFetch:', error);
+  }
+}
+
+async function fetchEntityData(entityUri) {
+  try{
+    const response = await fetch(`/api/entity?uri=${entityUri}`);
+
+    if (!response.ok) throw new Error("http error! Response not ok: ", response.status);
+
+    const entityList = await response.json();
+    return entityList;
+  }catch(error){
+    console.log("try/catch of entityData:", error)
+  }
 }
 
 

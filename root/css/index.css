@@ -51,13 +51,15 @@ article{
   width:65vw;
   height:75vh;
 /* start here */
-background: no-repeat center/80% url("./assets/gambitRouge.jpg");
+  background: no-repeat center/80% url("./assets/gambitRouge.jpg");
   position: absolute;
   right:0;
   bottom: calc(10vh);
   z-index: -5;
   overflow: auto;
   padding:1em;
+  color:var(--marvelWhite);
+  text-shadow: 2px 3px 4px var(--gambitMagenta);
 }
 
 footer{
@@ -85,18 +87,16 @@ img{
 /*
 character information card styling
 */
-h3{
+ article h3{
   font-size: 1.5em;
   margin: 0.66em 0 0.33em 0;
   padding: 0.66em;
   text-align: center;
-  color:var(--marvelWhite);
 }
 /*  */
 article p {
   display: block;
   font-size: 16px;
-  color:var(--gambitMagenta);
   line-height: 1.3em;
    text-indent: 2em;
    padding:0.12em;
@@ -119,3 +119,14 @@ footer em{
   margin:0.33em;
   font-size: 1.3em;
 }
+
+
+
+
+
+  /* 
+
+Got this from auto complete. what a glow-EVERYWHERE
+  
+  color: var(--marvelWhite);
+  text-shadow: var(--gambitMagenta) 1px 0 10px, var(--gambitMagenta) -1px 0 10px, var(--gambitMagenta) 0 1px 10px, var(--gambitMagenta) 0 -1px 10px, var(--gambitMagenta) 1px 1px 10px, var(--gambitMagenta) -1px -1px 10px, var(--gambitMagenta) -1px 1px 10px, var(--gambitMagenta) 1px -1px 10px; */
