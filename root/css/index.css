@@ -50,10 +50,8 @@ section:first-child{
 article{
   width:65vw;
   height:75vh;
-  /* background-color: rgba(255, 0, 255, 0.8); */
-  background:
-  no-repeat center/80%
-    url("./assets/gambitRouge.jpg");
+/* start here */
+background: no-repeat center/80% url("./assets/gambitRouge.jpg");
   position: absolute;
   right:0;
   bottom: calc(10vh);
@@ -92,10 +90,13 @@ h3{
   margin: 0.66em 0 0.33em 0;
   padding: 0.66em;
   text-align: center;
+  color:var(--marvelWhite);
 }
+/*  */
 article p {
   display: block;
   font-size: 16px;
+  color:var(--gambitMagenta);
   line-height: 1.3em;
    text-indent: 2em;
    padding:0.12em;
