@@ -6,7 +6,7 @@ class CharacterEntityNavigation {
     this.eventsURI = dataObject.data.results[0].events.collectionURI;
   }
   createElement(){
-    return document.createElement('div');
+    return document.createElement("h2");
   }
   createEnityNavigation(){
     const series = this.createElement();

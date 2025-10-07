@@ -50,7 +50,10 @@ section:first-child{
 article{
   width:65vw;
   height:75vh;
-  background-color: rgba(255, 0, 255, 0.8);
+  /* background-color: rgba(255, 0, 255, 0.8); */
+  background:
+  no-repeat center/80%
+    url("./assets/gambitRouge.jpg");
   position: absolute;
   right:0;
   bottom: calc(10vh);
