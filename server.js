@@ -37,18 +37,21 @@ fetch(url)
 .then(data =>{
    console.log("Data fetched from Marvel: ", data);
    res.status(201).json(data);
-}).catch(err=>{
-   console.log("Error fetching character data SERVERSIDE:", err);
-   res.status(500).json({error: err.message});
-});
 })
+// .catch(err=>{
+//    console.log("Error fetching character data SERVERSIDE:", err);
+//    res.status(500).json({error: err.message});
+});
 
 
 
 app.get("/api/entity", (req,res)=>{
+   const offset = ""
+   console.log("server query offset check:", offset); 
+
    console.log("Entity endpoint hit with uri: ", req.query.uri);
 
-   const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+   const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
    console.log("Entity endpoint hit", url);
    fetch(url)
@@ -62,7 +65,8 @@ app.get("/api/entity", (req,res)=>{
    .then(data =>{
       console.log("Entity data fetched from Marvel: ", data);
       res.status(201).json(data);
-   }).catch(err=>{
+   })
+   .catch(err=>{
       console.log("Error fetching entity data SERVERSIDE:", err);
       res.status(500).json({error: err.message});
    })

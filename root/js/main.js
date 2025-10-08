@@ -9,7 +9,8 @@ fetchCharacterData('Gambit').then(data => {
     gambit.setNavigation(characterNavigation);
     gambitCard.renderCharacterImage(characterCard);
     // You can add more logic here to handle the fetched data
-}).catch(err => console.error('Error fetching character data:', err));
+})
+.catch(err => console.error('Error fetching character data:', err));
 
 
 characterNavigation.addEventListener("click", (e) => {
