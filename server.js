@@ -22,14 +22,14 @@ const ts = new Date().getTime();
 app.get("/api/characters", (req, res) => {
 
    const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
-      console.log("Root endpoint hit");
+      console.log("Root character endpoint hit");
    
 fetch(url)
 .then(response => {
    console.log(url)
    if(!response.ok) {
       console.log("ServerFetchTest: ", response.status);
-      throw new Error("Network response was not ok");
+      throw new Error("Character Network response was not ok");
    }
    console.log("response ok");
    return response.json()
@@ -38,10 +38,11 @@ fetch(url)
    console.log("Data fetched from Marvel: ", data);
    res.status(201).json(data);
 })
-// .catch(err=>{
-//    console.log("Error fetching character data SERVERSIDE:", err);
-//    res.status(500).json({error: err.message});
+.catch(err=>{
+   console.log("Error fetching character data SERVERSIDE:", err);
+   res.status(500).json({error: err.message});
 });
+})
 
 
 
@@ -61,6 +62,7 @@ app.get("/api/entity", (req,res)=>{
          const text = response.text();
          throw new Error(`Bad response: ${response.status}, body: ${text}`);
       }
+      return response.json();
    })
    .then(data =>{
       console.log("Entity data fetched from Marvel: ", data);
@@ -71,6 +73,11 @@ app.get("/api/entity", (req,res)=>{
       res.status(500).json({error: err.message});
    })
 })
+
+
+
+
+
 
 app.listen(config.port, () => {
    console.log(`Server is running on port ${config.port}`);
