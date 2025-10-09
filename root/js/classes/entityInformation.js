@@ -1,9 +1,9 @@
 class EntityInformation {
   constructor(entityRresultsObject){
   this.title =  entityRresultsObject.title;
-  // this.description = entityRresultsObject.description;
-  this.start = entityRresultsObject.start.split(" ");
-  this.end = entityRresultsObject.endsplit(" ");
+  this.description = entityRresultsObject.description;
+  this.start = entityRresultsObject.start;
+  this.end = entityRresultsObject.end;
   this.thumbnail = entityRresultsObject.thumbnail;
   }
   createElements(){
@@ -11,17 +11,25 @@ class EntityInformation {
     // const description = document.createElement("h3");
     const startEndDates = document.createElement("span")
     const descriptionParagraph = document.createElement("p");
-    return {title, description, startEndDates, descriptionParagraph}
+    const previous = document.createElement("h1")
+    const next = document.createElement("h1")
+    return {previous, title, startEndDates, descriptionParagraph, next}
   }
   setContent(){
-    const {title, startEndDates, descriptionParagraph} = this.createElements()
+    const start = this.start.split(" ")
+    const end = this.end.split(" ")
+    const {previous, title, startEndDates, descriptionParagraph, next} = this.createElements()
+    previous.textContent = "<"
+    previous.setAttribute("id", "previous")
+    next.textContent = ">"
+    next.setAttribute("id", "next")
     title.textContent = `${this.title}`
     descriptionParagraph.textContent = `${this.description}`
-    startEndDates.textContent = `Stat: ${this.start[0]} - End: ${this.end[0]}`;
-    return {title, startEndDates, descriptionParagraph}
+    startEndDates.textContent = `Stat: ${start[0]} - End: ${end[0]}`;
+    return {previous, title, startEndDates, descriptionParagraph, next}
   }
   renderEntityInformation(parent){
-    const {title, startEndDates, descriptionParagraph} = this.setContent();
-    parent.append(title, descriptionParagraph, startEndDates)
+    const {previous, title, startEndDates, descriptionParagraph, next} = this.setContent();
+    parent.append(previous, title, descriptionParagraph, startEndDates, next)
   }
 }
