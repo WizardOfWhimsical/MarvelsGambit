@@ -2,17 +2,25 @@ import config from "#config";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import md5 from "md5";
 
-dotenv.config();
-
+// dotenv.config();
+// console.log("helloworld");
 const app = express();
-app.use(cors());
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("./root"));
+// app.use(cors());
+// app.use(morgan("dev"));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.static("./root"));
+
+app.use(
+  cors(),
+  morgan('dev'),
+  express.json(),
+  express.urlencoded({ extended: true }),
+  express.static('./root'),
+);
 
 const ts = new Date().getTime();
    const publicKey = process.env.PUBLIC_KEY;

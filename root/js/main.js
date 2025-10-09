@@ -23,14 +23,7 @@ characterNavigation.addEventListener("click", (e) => {
         const results = data.data.results;
         // when clicked add active class to what was clicked
 
-document.querySelectorAll("#characterInformation *").forEach(el => el.remove());
-
-
-
-
-
-
-
+clearCharacterInformation()
 
 const eventData = new EntityInformation(results[0])
 eventData.renderEntityInformation(entityInformatiom)

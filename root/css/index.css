@@ -9,8 +9,8 @@ to be replaced with cool BG image later
  } */
 
  body{
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   background-color: rgb(223, 177, 246);
   position: relative;
   overflow: hidden;
@@ -18,8 +18,8 @@ to be replaced with cool BG image later
 }
 
 nav{
-  width: 100%;
-  height: 15vh;
+  width: 100dvw;
+  height: 15dvh;
   background-color: rgb(85, 253, 85, 0.8);
   position: absolute;
   top:0;
@@ -28,33 +28,40 @@ nav{
 }
 
 section:first-child{
-  width:35vw;
-  height:75vh;
+  width:35dvw;
+  height:75dvh;
   background-color: rgba(255, 0, 0, 0.8);
   position: absolute;
   left:0;
-  bottom: calc(10vh);
+  bottom: calc(10dvh);
   z-index: -5;
 }
 
 /* section:last-child{
-  width:20vw;
-  height:75vh;
+  width:20dvw;
+  height:75dvh;
   background-color: rgba(106, 255, 0, 0.8);
   position: absolute;
   right:0;
-  bottom: calc(10vh);
+  bottom: calc(10dvh);
   z-index: -5;
 } */
 
 article{
-  width:65vw;
-  height:75vh;
+  width:65dvw;
+  height:75dvh;
 /* start here */
-  background: no-repeat center/80% url("./assets/gambitRouge.jpg");
+  background: no-repeat center/80%  url("./assets/gambitRouge.jpg");
+  /* background-position: no-repeat center/80%; */
+  /* background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ); */
+
   position: absolute;
   right:0;
-  bottom: calc(10vh);
+  bottom: calc(10dvh);
   z-index: -5;
   overflow: auto;
   padding:1em;
@@ -64,7 +71,7 @@ article{
 
 footer{
   width: 100%;
-  height: 10vh;
+  height: 10dvh;
   background-color: rgba(249, 235, 36, 0.932);
   position: absolute;
   bottom:0;
@@ -78,8 +85,8 @@ just basic card styling
 */
 
 img{
-  width: 25vw;
-  height:35vh;
+  width: 25dvw;
+  height:35dvh;
   margin-bottom: 1em;  
   /* object-fit: cover; */
 }
@@ -98,9 +105,9 @@ article p {
   display: block;
   font-size: 16px;
   line-height: 1.3em;
-   text-indent: 2em;
-   padding:0.12em;
-   margin: 0.12em;
+  text-indent: 2em;
+  padding:0.25em;
+  margin: 0.12em;
 }
 
 article em{
@@ -109,6 +116,17 @@ article em{
   padding:1em;
   margin:1em;
   line-height: 1.4em;
+}
+/* article entity styling */
+article h2{
+  margin-top: calc(10dvh);
+  text-align: center;
+}
+article div{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.66em;
+  margin: 1em;
 }
 
 /*

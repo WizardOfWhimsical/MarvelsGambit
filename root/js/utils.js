@@ -29,6 +29,9 @@ async function fetchEntityData(entityUri) {
   }
 }
 
+function clearCharacterInformation(){
+  document.querySelectorAll("#characterInformation *").forEach(el => el.remove());
+}
 
 
 
