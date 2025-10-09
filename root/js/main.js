@@ -18,7 +18,11 @@ characterNavigation.addEventListener("click", (e) => {
       console.log("Clicked on: ", target);
       fetchEntityData(target).then(data=>{
             console.log("Entity Data:", data);
-            // then i do stuff
+        // the array of result
+        const results = data.data.results;
+        // when clicked add active class to what was clicked
+
+
       }).catch(err => console.error('Error fetching entity data:', err));
     })
 
