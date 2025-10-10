@@ -13,7 +13,7 @@ fetchCharacterData('Gambit').then(data => {
 })
 .catch(err => console.error('Error fetching character data:', err));
 
-let count = 0;
+let count = 1;//zero auto loads
 let results;
 
 characterNavigation.addEventListener("click", (e) => {
@@ -26,8 +26,12 @@ characterNavigation.addEventListener("click", (e) => {
         results = data.data.results;
         // when clicked add active class to what was clicked
 
-clearCharacterInformation()
+// clearCharacterInformation()
+clearList(entityInformation, ["h3","p","em"])
+// clearList(entityInformation, "p")
 
+
+// this is not right. not for carets. comeon dude
 const eventData = new EntityInformation(results[0])
 eventData.renderEntityInformation(entityInformation)
 
@@ -39,27 +43,30 @@ eventData.renderEntityInformation(entityInformation)
 
 const divBtns = entityInformation.querySelector("div")
 
-if(count === 0){
-    // add style display none to first child
-    divBtns.firstChild.style.display = "none"
-    //  divBtns.lastChild.classList.add("end")
-}else if(count === results.length-1){
-divBtns.lastChild.style.display = "none"
-}
+// if(count === 0){
+//     // add style display none to first child
+//     divBtns.firstChild.style.display = "none"
+//     //  divBtns.lastChild.classList.add("end")
+// }else if(count === results.length-1){
+// divBtns.lastChild.style.display = "none"
+// }
 
 divBtns.addEventListener("click",(e)=>{
 
     console.log("results insode event listener", results)
-    clearCharacterInformation()
+    clearList(entityInformation, ["h3","p","em"])
+    // clearCharacterInformation()
     let choice = e.target.dataset.carrot
    previousNextLogic(results, entityInformation, choice, count)
    if(choice === "previous"){
     count--
    }else{count++}
 
+console.log(count)
+
 })
 
-console.log(count)
+
 
      
 

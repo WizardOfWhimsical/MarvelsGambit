@@ -29,8 +29,19 @@ async function fetchEntityData(entityUri) {
   }
 }
 
-function clearCharacterInformation(){
-  document.querySelectorAll("#characterInformation *").forEach(el => el.remove());
+// function clearCharacterInformation(){
+//   document.querySelectorAll("#characterInformation *").forEach(el => el.remove());
+// }
+// const parent = queryselector("article")
+
+function clearList(parent, arrayOfElRemoved) {
+  for(let el of arrayOfElRemoved){
+  if (parent.querySelectorAll(el).length > 0) {
+  parent.querySelectorAll(el).forEach((kid) => {
+    kid.remove();
+  })
+  };
+}
 }
 
 function previousNextLogic(resultsArray, parent, dataInput, num){

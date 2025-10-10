@@ -118,6 +118,7 @@ article em{
   line-height: 1.4em;
 }
 /* article entity styling */
+/* this became an h3 */
 article h2{
   margin-top: calc(10dvh);
   text-align: center;
