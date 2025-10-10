@@ -26,6 +26,14 @@ padding:0;
   align-items: center;
 }
 
+.end{
+  /* justify-self: end; */
+  justify-items: end;
+}
+.start{
+  justify-self: start;
+}
+
 .column{
   flex-direction: column;
 }

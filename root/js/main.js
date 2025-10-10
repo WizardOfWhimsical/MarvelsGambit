@@ -1,6 +1,6 @@
 const characterNavigation = document.getElementById("entityNavigation");
 const characterCard = document.getElementById("characterCard");
-const entityInformatiom = document.getElementById("characterInformation");
+const entityInformation = document.getElementById("characterInformation");
 
 fetchCharacterData('Gambit').then(data => {
     // console.log('Character Data:', data);
@@ -13,6 +13,7 @@ fetchCharacterData('Gambit').then(data => {
 })
 .catch(err => console.error('Error fetching character data:', err));
 
+let count = 0;
 
 characterNavigation.addEventListener("click", (e) => {
       let target = e.target.dataset.uri;
@@ -26,10 +27,44 @@ characterNavigation.addEventListener("click", (e) => {
 clearCharacterInformation()
 
 const eventData = new EntityInformation(results[0])
-eventData.renderEntityInformation(entityInformatiom)
+eventData.renderEntityInformation(entityInformation)
+
+
+
+
+const divBtns = entityInformation.querySelector("div")
+
+
+if(count === 0){
+    // add style display none to first child
+    divBtns.firstChild.style.display = "none"
+    //  divBtns.lastChild.classList.add("end")
+}else if(count === results.length-1){
+divBtns.lastChild.style.display = "none"
+}
+
+divBtns.addEventListener("click",(e)=>{
+
+    console.log("results insode event listener", results)
+    clearCharacterInformation()
+    let choice = e.target.dataset.carrot
+   previousNextLogic(results, entityInformation, choice, count)
+   if(choice === "previous"){
+    count--
+   }else{count++}
+
+})
+
+console.log(count)
 
       }).catch(err => console.error('Error fetching entity data:', err));
     })
+
+
+
+
+
+
 
 
 /**

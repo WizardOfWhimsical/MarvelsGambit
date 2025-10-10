@@ -37,6 +37,8 @@ class EntityInformation {
     next.setAttribute("id", "next")
     next.setAttribute("data-carrot", "next")
 
+container.classList.add("container")
+
     container.append(previous, next)
     return container
   }

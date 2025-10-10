@@ -33,6 +33,24 @@ function clearCharacterInformation(){
   document.querySelectorAll("#characterInformation *").forEach(el => el.remove());
 }
 
+function previousNextLogic(resultsArray, parent, dataInput, num){
+let count = num;
+
+
+switch(dataInput){
+  case "previous":
+count--
+break;
+case "next":
+  count++
+  break
+}
+  const eventData = new EntityInformation(resultsArray[count])
+  eventData.renderEntityInformation(parent)
+return count
+}
+
+
 
 
 

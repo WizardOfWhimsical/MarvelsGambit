@@ -128,6 +128,15 @@ article div{
   padding: 0.66em;
   margin: 1em;
 }
+article h1{
+  cursor: pointer;
+}
+article h1:hover{
+  cursor: grab;
+}
+article h1:active{
+  cursor: grabbing;
+}
 
 /*
 footer Contents
