@@ -14,14 +14,16 @@ fetchCharacterData('Gambit').then(data => {
 .catch(err => console.error('Error fetching character data:', err));
 
 let count = 0;
+let results;
 
 characterNavigation.addEventListener("click", (e) => {
       let target = e.target.dataset.uri;
       console.log("Clicked on: ", target);
+      
       fetchEntityData(target).then(data=>{
             console.log("Entity Data:", data);
         // the array of result
-        const results = data.data.results;
+        results = data.data.results;
         // when clicked add active class to what was clicked
 
 clearCharacterInformation()
@@ -30,10 +32,12 @@ const eventData = new EntityInformation(results[0])
 eventData.renderEntityInformation(entityInformation)
 
 
+      }).catch(err => console.error('Error fetching entity data:', err));
+    })
 
+// MAKE THE CARETS SEPERATTE, IDIOT! dont forget again, love ya 
 
 const divBtns = entityInformation.querySelector("div")
-
 
 if(count === 0){
     // add style display none to first child
@@ -57,8 +61,7 @@ divBtns.addEventListener("click",(e)=>{
 
 console.log(count)
 
-      }).catch(err => console.error('Error fetching entity data:', err));
-    })
+     
 
 
 
