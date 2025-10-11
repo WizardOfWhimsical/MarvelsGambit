@@ -2,7 +2,7 @@ import config from "#config";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import normalizeDates from "./docs/js/imports/middleware"
+import normalizeDates from "#normalizeStructure"
 import md5 from "md5";
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(
   morgan('dev'),
   express.json(),
   express.urlencoded({ extended: true }),
-  express.static('./root'),
+  express.static('./docs'),
 );
 
 const ts = new Date().getTime();
@@ -45,7 +45,7 @@ fetch(url)
 });
 })
 //middlware to fix my date problem
-app.use("/api/entity", normalizeDates)
+// app.use("/api/entity", normalizeDates())
 
 app.get("/api/entity", (req,res)=>{
    // const offset = ""
@@ -66,6 +66,10 @@ app.get("/api/entity", (req,res)=>{
       }
       return response.json();
    })
+   // .then(results=>{
+   //    console.log(results)
+   //   return normalizeDates(results)
+   // })
    .then(data =>{
       console.log("Entity data fetched from Marvel: ", data);
       res.status(201).json(data);
