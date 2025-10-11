@@ -39,5 +39,5 @@ padding:0;
 }
 
 .hidden{
-  display: none;
+  visibility: hidden;
 }
