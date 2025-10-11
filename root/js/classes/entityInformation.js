@@ -27,6 +27,6 @@ class EntityInformation {
   }
   renderEntityInformation(parent){
     const {title, startEndDates, descriptionParagraph} = this.setContent();
-    parent.append(title, descriptionParagraph, startEndDates)
+    parent.prepend(title, descriptionParagraph, startEndDates)
   }
 }
