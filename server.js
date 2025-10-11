@@ -44,12 +44,8 @@ fetch(url)
    res.status(500).json({error: err.message});
 });
 })
-//middlware to fix my date problem
-// app.use("/api/entity", normalizeDates())
 
-app.get("/api/entity", (req,res)=>{
-   // const offset = ""
-   // console.log("server query offset check:", offset); 
+app.get("/api/entity",(req,res)=>{
 
    console.log("Entity endpoint hit with uri: ", req.query.uri);
    console.log("query check:", req.query)
@@ -66,10 +62,6 @@ app.get("/api/entity", (req,res)=>{
       }
       return response.json();
    })
-   // .then(results=>{
-   //    console.log(results)
-   //   return normalizeDates(results)
-   // })
    .then(data =>{
       console.log("Entity data fetched from Marvel: ", data);
       res.status(201).json(data);
