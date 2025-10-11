@@ -2,7 +2,7 @@ import config from "#config";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import normalizeDates from "#normalizeStructure"
+// import normalizeDates from "#normalizeStructure"
 import md5 from "md5";
 
 const app = express();
@@ -45,12 +45,16 @@ fetch(url)
 });
 })
 
+
+
+
 app.get("/api/entity",(req,res)=>{
 
    console.log("Entity endpoint hit with uri: ", req.query.uri);
    console.log("query check:", req.query)
-   // const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
-   const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+   const offset = ""
+   const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
+   // const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
    console.log("Entity endpoint hit", url);
    fetch(url)
@@ -71,6 +75,8 @@ app.get("/api/entity",(req,res)=>{
       res.status(500).json({error: err.message});
    })
 })
+
+
 
 app.listen(config.port, () => {
    console.log(`Server is running on port ${config.port}`);

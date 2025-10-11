@@ -2,8 +2,8 @@ class EntityInformation {
   constructor(entityRresultsObject){
   this.title =  entityRresultsObject.title;
   this.description = entityRresultsObject.description;
-  this.start = entityRresultsObject.start;
-  this.end = entityRresultsObject.end;
+  this.start = entityRresultsObject.start || entityRresultsObject.startYear;
+  this.end = entityRresultsObject.end || entityRresultsObject.endYear;
   this.thumbnail = entityRresultsObject.thumbnail;
   }
   createElements(){
