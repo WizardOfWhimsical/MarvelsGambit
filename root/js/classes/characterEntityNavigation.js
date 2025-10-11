@@ -1,9 +1,30 @@
 class CharacterEntityNavigation {
   constructor(dataObject){
-    this.seriesURL = dataObject.data.results[0].series.collectionURI;
-    // this.comicsURL = dataObject.data.results[0].comics.collectionURI;
-    this.storiesURL = dataObject.data.results[0].stories.collectionURI;
-    this.eventsURL = dataObject.data.results[0].events.collectionURI;
+    // Validate data structure exists
+    if (!dataObject?.data?.results?.[0]) {
+      console.error('Invalid data passed to constructor:', dataObject);
+      throw new Error('Invalid character data: missing results array');
+    }
+    
+    const character = dataObject.data.results[0];
+    
+    // Validate required properties exist
+    if (!character.series?.collectionURI) {
+      throw new Error('Character missing series data');
+    }
+    if (!character.stories?.collectionURI) {
+      throw new Error('Character missing stories data');
+    }
+    if (!character.events?.collectionURI) {
+      throw new Error('Character missing events data');
+    }
+    
+    this.seriesURL = character.series.collectionURI;
+    // this.comicsURL = character.comics.collectionURI;
+    this.storiesURL = character.stories.collectionURI;
+    this.eventsURL = character.events.collectionURI;
+    
+    console.log('✅ CharacterEntityNavigation initialized successfully');
   }
   createElement(){
     return document.createElement('div');
