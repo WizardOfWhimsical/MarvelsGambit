@@ -18,7 +18,7 @@ async function main(){
 main()
 
 
-let count = 0;//for information cycling, indxPos
+let count = 0;
 let results;
 
 const divBtns = entityInformation.querySelector("div");

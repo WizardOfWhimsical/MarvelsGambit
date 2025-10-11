@@ -18,7 +18,7 @@ async function fetchEntityData(entityUri) {
 
    if (!response.ok) {
     console.log("Marvel returned:", response.status);
-    const text = await response.text();  // this shows HTML or empty string
+    const text = await response.text();
     throw new Error(`Bad response: ${response.status}, body: ${text}`);
    }
 

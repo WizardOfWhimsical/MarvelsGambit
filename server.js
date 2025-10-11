@@ -53,7 +53,6 @@ app.get("/api/entity",(req,res)=>{
 
    const offset = ""
    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
-   // const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
    console.log("Entity endpoint hit", url);
    fetch(url)

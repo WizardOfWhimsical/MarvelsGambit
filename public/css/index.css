@@ -1,13 +1,5 @@
 @import url("style.css");
 
-/*
-* Outline all elements to see their boundaries
-to be replaced with cool BG image later
-*/
- /* *{
-  border: 1px solid purple;
- } */
-
  body{
   width: 100dvw;
   height: 100dvh;
@@ -15,65 +7,32 @@ to be replaced with cool BG image later
   position: relative;
   overflow: hidden;
   z-index: -10;
+  color:var(--marvelWhite);
+  text-shadow: 2px 3px 4px var(--gambitMagenta);
 }
-
-/* nav{
-  width: 100dvw;
-  height: 15dvh;
-  background: repeat center/20%  url("./assets/navBackground.png");
-  font-size:1.5em;
-  text-decoration: none;
-  position: absolute;
-  top:0;
-  left:0; 
-  z-index: -5;
-} */
 
 section:first-child{
   width:35dvw;
   height:75dvh;
-  background-color: rgba(255, 0, 0, 0.8);
+  background: no-repeat url("./assets/bayou.png");
   position: absolute;
   left:0;
-  bottom: calc(10dvh);
+  bottom: 10dvh;
   z-index: -5;
 }
-
-/* section:last-child{
-  width:20dvw;
-  height:75dvh;
-  background-color: rgba(106, 255, 0, 0.8);
-  position: absolute;
-  right:0;
-  bottom: calc(10dvh);
-  z-index: -5;
-} */
 
 article{
   width:65dvw;
   height:75dvh;
-/* start here */
-  /* background: no-repeat center/80%  url("./assets/gambitRouge.jpg"); */
-
   background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
   url("./assets/gambitRouge.jpg")
   center/80% no-repeat;
-
-  /* background-position: no-repeat center/80%; */
-  /* background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ); */
-
   position: absolute;
   right:0;
-  bottom: calc(10dvh);
+  bottom: 10dvh;
   z-index: -5;
   overflow: auto;
   padding:1em;
-  color:var(--marvelWhite);
-  text-shadow: 2px 3px 4px var(--gambitMagenta);
 }
 
 footer{
@@ -90,12 +49,10 @@ footer{
 /*
 just basic card styling
 */
-
 img{
   width: 25dvw;
   height:35dvh;
   margin-bottom: 1em;  
-  /* object-fit: cover; */
 }
 
 /*
@@ -105,10 +62,10 @@ character information card styling
   font-size: 1.5em;
   margin: 0.66em 0 0.33em 0;
   padding: 0.66em;
-  margin-top:calc(10dvh);
+  margin-top: 10dvh;
   text-align: center;
 }
-/*  */
+
 article p {
   display: block;
   font-size: 16px;
@@ -125,12 +82,7 @@ article em{
   margin:1em;
   line-height: 1.4em;
 }
-/* article entity styling */
-/* this became an h3 */
-/* article h2{
-  margin-top: calc(10dvh);
-  text-align: center;
-} */
+
 article div{
   display: flex;
   justify-content: space-between;
@@ -155,14 +107,3 @@ footer em{
   margin:0.33em;
   font-size: 1.3em;
 }
-
-
-
-
-
-  /* 
-
-Got this from auto complete. what a glow-EVERYWHERE
-  
-  color: var(--marvelWhite);
-  text-shadow: var(--gambitMagenta) 1px 0 10px, var(--gambitMagenta) -1px 0 10px, var(--gambitMagenta) 0 1px 10px, var(--gambitMagenta) 0 -1px 10px, var(--gambitMagenta) 1px 1px 10px, var(--gambitMagenta) -1px -1px 10px, var(--gambitMagenta) -1px 1px 10px, var(--gambitMagenta) 1px -1px 10px; */

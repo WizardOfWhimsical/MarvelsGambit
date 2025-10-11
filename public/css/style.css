@@ -1,5 +1,4 @@
 @import url("./rootColor.css");
-/* @import url("./font.css"); */
 @import url("./nav.css");
 
 *{
@@ -24,14 +23,6 @@ padding:0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.end{
-  /* justify-self: end; */
-  justify-items: end;
-}
-.start{
-  justify-self: start;
 }
 
 .column{
