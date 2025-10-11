@@ -2,40 +2,49 @@ const characterNavigation = document.getElementById("entityNavigation");
 const characterCard = document.getElementById("characterCard");
 const entityInformation = document.getElementById("characterInformation");
 
-fetchCharacterData('Gambit').then(data => {
-    // console.log('Character Data:', data);
-    const gambit = new CharacterEntityNavigation(data);
-    const gambitCard = new CharacterImageCard(data);
+async function main(){
+    try{
+        const data = await fetchCharacterData('Gambit')
 
-    gambit.setNavigation(characterNavigation);
-    gambitCard.renderCharacterImage(characterCard);
+        const gambit = new CharacterEntityNavigation(data);
+        const gambitCard = new CharacterImageCard(data);
+
+        gambit.setNavigation(characterNavigation);
+        gambitCard.renderCharacterImage(characterCard);
+    }
+   catch(err){console.log("Cahracter fetch", err)}
    
-})
-.catch(err => console.error('Error fetching character data:', err));
+}
+main()
+
 
 let count = 0;//for information cycling, indxPos
 let results;
+
 const divBtns = entityInformation.querySelector("div");
 const prev = document.getElementById("previous");
 const next = document.getElementById("next");
 
-characterNavigation.addEventListener("click", (e) => {
+characterNavigation.addEventListener("click", async (e) => {
 
-      let target = e.target.dataset.uri;
-      console.log("Clicked on: ", target);
-      
-    fetchEntityData(target).then(data=>{
+    let target = e.target.dataset.uri;
+    console.log("Clicked on: ", target);
+    try{    
+        const response = await fetchEntityData(target)
+        console.log("response",response)
+        
+        results = response.data.results
 
-        console.log("Entity Data:", data);
-        results = data.data.results;
+        clearList(entityInformation, ["h3","p","em"])
 
-    clearList(entityInformation, ["h3","p","em"])
+        const eventData = new EntityInformation(results[0])
 
-    const eventData = new EntityInformation(results[0])
-    eventData.renderEntityInformation(entityInformation)
-    carrotsHideShow()
+        eventData.renderEntityInformation(entityInformation)
 
-      }).catch(err => console.error('Error fetching entity data:', err));
+        carrotsHideShow()   
+    }catch(err){
+        console.log(err)
+    }
     })
 
 
@@ -43,10 +52,11 @@ divBtns.addEventListener("click",(e)=>{
 
     console.log("results inside event listener")
     clearList(entityInformation, ["h3","p","em"])
+
     let choice = e.target.dataset.carrot
+
     count = previousNextLogic(results, entityInformation, choice, count)
     carrotsHideShow()
-    console.log("are you increasing",count)
 
 })
 

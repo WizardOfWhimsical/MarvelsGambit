@@ -5,11 +5,6 @@ class EntityInformation {
   this.start = entityRresultsObject.start || entityRresultsObject.startYear;
   this.end = entityRresultsObject.end || entityRresultsObject.endYear;
   this.thumbnail = `${entityRresultsObject.thumbnail.path}.${entityRresultsObject.thumbnail.extension}`;
-
-/**
- *     this.imageSrc = `${object.data.results[0].thumbnail.path}.${object.data.results[0].thumbnail.extension}`;
- */
-
   }
   createElements(){
     const title = document.createElement("h3");
