@@ -14,8 +14,10 @@ class EntityInformation {
     return { title, startEndDates, descriptionParagraph}
   }
   setContent(){
+    // not the problem ;p
     const start = typeof this.start  === "string"?this.start.split(" ")[0]:this.start;
     const end = typeof this.end  === "string"?this.end.split(" ")[0]:this.end;
+    console.log("log inside class to see the ternary work", start, end)
     const {title, startEndDates, descriptionParagraph} = this.createElements()
 
     title.textContent = `${this.title}`

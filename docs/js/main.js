@@ -30,7 +30,7 @@ characterNavigation.addEventListener("click", (e) => {
         results = data.data.results;
 
     clearList(entityInformation, ["h3","p","em"])
-
+// i need to steralize some shit, i need to run a check for 
     const eventData = new EntityInformation(results[0])
     eventData.renderEntityInformation(entityInformation)
     carrotsHideShow()

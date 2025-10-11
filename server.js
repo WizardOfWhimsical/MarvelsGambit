@@ -2,17 +2,10 @@ import config from "#config";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-// import dotenv from "dotenv";
+import normalizeDates from "./docs/js/imports/middleware"
 import md5 from "md5";
 
-// dotenv.config();
-// console.log("helloworld");
 const app = express();
-// app.use(cors());
-// app.use(morgan("dev"));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static("./root"));
 
 app.use(
   cors(),
@@ -51,15 +44,15 @@ fetch(url)
    res.status(500).json({error: err.message});
 });
 })
-
-
+//middlware to fix my date problem
+app.use("/api/entity", normalizeDates)
 
 app.get("/api/entity", (req,res)=>{
    // const offset = ""
    // console.log("server query offset check:", offset); 
 
    console.log("Entity endpoint hit with uri: ", req.query.uri);
-
+   console.log("query check:", req.query)
    // const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
    const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
