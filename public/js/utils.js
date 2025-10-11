@@ -32,10 +32,10 @@ async function fetchEntityData(entityUri) {
 
 function clearList(parent, arrayOfElRemoved) {
   for(let el of arrayOfElRemoved){
-  if (parent.querySelectorAll(el).length > 0) {
-  parent.querySelectorAll(el).forEach((kid) => {
-    kid.remove();
-  })
+    if (parent.querySelectorAll(el).length > 0) {
+      parent.querySelectorAll(el).forEach((kid) => {
+        kid.remove();
+      })
   };
 }
 }
@@ -57,15 +57,11 @@ return count
 
 function carrotsHideShow(){
     if(count === 0){
-    // add style display none to first child
     console.log("count zero hit: state change?");
     next.classList.remove("hidden");
-    // divBtns.firstChild.style.display = "none"
-    //  divBtns.lastChild.classList.add("end")
 }else if(count === results.length-1){
     console.log("end of array: still state change?");
     next.classList.add("hidden");
-// divBtns.lastChild.style.display = "none"
 }else{
     console.log("show?")
     prev.classList.remove("hidden");

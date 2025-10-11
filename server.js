@@ -2,7 +2,6 @@ import config from "#config";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-// import normalizeDates from "#normalizeStructure"
 import md5 from "md5";
 
 const app = express();
@@ -12,7 +11,7 @@ app.use(
   morgan('dev'),
   express.json(),
   express.urlencoded({ extended: true }),
-  express.static('./docs'),
+  express.static('./public'),
 );
 
 const ts = new Date().getTime();
@@ -23,7 +22,8 @@ const ts = new Date().getTime();
 app.get("/api/characters", (req, res) => {
 
    const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
-      console.log("Root character endpoint hit");
+
+   console.log("Root character endpoint hit");
    
 fetch(url)
 .then(response => {
@@ -46,12 +46,11 @@ fetch(url)
 })
 
 
-
-
 app.get("/api/entity",(req,res)=>{
 
    console.log("Entity endpoint hit with uri: ", req.query.uri);
    console.log("query check:", req.query)
+
    const offset = ""
    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
    // const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
@@ -59,6 +58,7 @@ app.get("/api/entity",(req,res)=>{
    console.log("Entity endpoint hit", url);
    fetch(url)
    .then(response=>{
+
       if(!response.ok){
          console.log("entity fetch !OK on server", response.status);
          const text = response.text();
@@ -75,7 +75,6 @@ app.get("/api/entity",(req,res)=>{
       res.status(500).json({error: err.message});
    })
 })
-
 
 
 app.listen(config.port, () => {

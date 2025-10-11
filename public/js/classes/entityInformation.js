@@ -19,8 +19,11 @@ class EntityInformation {
     const end = typeof this.end  === "string"?this.end.split(" ")[0]:this.end;
     console.log("log inside class to see the ternary work", start, end)
     const {title, startEndDates, descriptionParagraph} = this.createElements()
-
+    console.log(this.description)
     title.textContent = `${this.title}`
+    if(this.description === null){
+      this.description = "No description provided. Sorry :'-("
+    }
     descriptionParagraph.textContent = `${this.description}`
     startEndDates.textContent = `Stat: ${start} - End: ${end}`;
 
