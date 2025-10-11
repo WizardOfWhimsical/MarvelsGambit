@@ -19,60 +19,46 @@ const ts = new Date().getTime();
    const privateKey = process.env.PRIVATE_KEY;
    const hash = md5(ts + privateKey + publicKey);
 
-app.get("/api/characters", (req, res) => {
+app.get("/api/characters",async (req, res) => {
 
    const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
 
    console.log("Root character endpoint hit");
    
-fetch(url)
-.then(response => {
-   console.log(url)
-   if(!response.ok) {
+ const response = await fetch(url)
+ console.log(response)
+ if(!response.ok) {
       console.log("ServerFetchTest: ", response.status);
       throw new Error("Character Network response was not ok");
    }
-   console.log("response ok");
-   return response.json()
-})
-.then(data =>{
-   console.log("Data fetched from Marvel: ", data);
-   res.status(201).json(data);
-})
-.catch(err=>{
-   console.log("Error fetching character data SERVERSIDE:", err);
-   res.status(500).json({error: err.message});
-});
+   try{
+      const data = await response.json()
+      console.log("Data fetched from Marvel character: ", data);
+      res.status(201).json(data);
+   }catch(err){console.log("character fetchErr", err)}  
 })
 
 
-app.get("/api/entity",(req,res)=>{
-
-   console.log("Entity endpoint hit with uri: ", req.query.uri);
-   console.log("query check:", req.query)
+app.get("/api/entity",async (req,res)=>{
 
    const offset = ""
    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
    console.log("Entity endpoint hit", url);
-   fetch(url)
-   .then(response=>{
+   const response = await fetch(url)
 
-      if(!response.ok){
+   if(!response.ok){
          console.log("entity fetch !OK on server", response.status);
          const text = response.text();
          throw new Error(`Bad response: ${response.status}, body: ${text}`);
       }
-      return response.json();
-   })
-   .then(data =>{
-      console.log("Entity data fetched from Marvel: ", data);
+
+   try{
+      const data = await response.json()
+      console.log("Data fetched from Marvel entity: ", data);
       res.status(201).json(data);
-   })
-   .catch(err=>{
-      console.log("Error fetching entity data SERVERSIDE:", err);
-      res.status(500).json({error: err.message});
-   })
+   }catch(err){console.log("character fetchErr", err)}  
+
 })
 
 
