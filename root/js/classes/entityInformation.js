@@ -14,14 +14,13 @@ class EntityInformation {
     return { title, startEndDates, descriptionParagraph}
   }
   setContent(){
-    const start = this.start.split(" ")
-    const end = this.end.split(" ")
-
+    const start = typeof this.start  === "string"?this.start.split(" ")[0]:this.start;
+    const end = typeof this.end  === "string"?this.end.split(" ")[0]:this.end;
     const {title, startEndDates, descriptionParagraph} = this.createElements()
 
     title.textContent = `${this.title}`
     descriptionParagraph.textContent = `${this.description}`
-    startEndDates.textContent = `Stat: ${start[0]} - End: ${end[0]}`;
+    startEndDates.textContent = `Stat: ${start} - End: ${end}`;
 
     return {title, startEndDates, descriptionParagraph}
   }
