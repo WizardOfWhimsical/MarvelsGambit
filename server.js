@@ -55,12 +55,13 @@ fetch(url)
 
 
 app.get("/api/entity", (req,res)=>{
-   const offset = ""
-   console.log("server query offset check:", offset); 
+   // const offset = ""
+   // console.log("server query offset check:", offset); 
 
    console.log("Entity endpoint hit with uri: ", req.query.uri);
 
-   const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
+   // const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
+   const url = `${req.query.uri}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
    console.log("Entity endpoint hit", url);
    fetch(url)
@@ -81,11 +82,6 @@ app.get("/api/entity", (req,res)=>{
       res.status(500).json({error: err.message});
    })
 })
-
-
-
-
-
 
 app.listen(config.port, () => {
    console.log(`Server is running on port ${config.port}`);

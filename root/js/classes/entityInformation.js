@@ -25,26 +25,8 @@ class EntityInformation {
 
     return {title, startEndDates, descriptionParagraph}
   }
-//   previousNextCarrots(){
-//     const container = document.createElement("div")
-//     const previous = document.createElement("h1")
-//     const next = document.createElement("h1")
-
-//     previous.textContent = "<"
-//     previous.setAttribute("id", "previous")
-//     previous.setAttribute("data-carrot", "previous")
-//     next.textContent = ">"
-//     next.setAttribute("id", "next")
-//     next.setAttribute("data-carrot", "next")
-
-// container.classList.add("container")
-
-//     container.append(previous, next)
-//     return container
-//   }
   renderEntityInformation(parent){
     const {title, startEndDates, descriptionParagraph} = this.setContent();
-    // const prevNextBtn = this.previousNextCarrots()
     parent.append(title, descriptionParagraph, startEndDates)
   }
 }

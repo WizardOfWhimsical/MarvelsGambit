@@ -5,8 +5,8 @@ async function fetchCharacterData(characterName) {
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     
     const characterData = await response.json();
-    // this returns the fullfilled promise as data, no more chaining needed
     return characterData;
+
   }catch (error) {
     console.log('try/catch of characterDataFetch:', error);
   }
@@ -24,15 +24,11 @@ async function fetchEntityData(entityUri) {
 
     const entityList = await response.json();
     return entityList;
+
   }catch(error){
     console.log("try/catch of entityData:", error)
   }
 }
-
-// function clearCharacterInformation(){
-//   document.querySelectorAll("#characterInformation *").forEach(el => el.remove());
-// }
-// const parent = queryselector("article")
 
 function clearList(parent, arrayOfElRemoved) {
   for(let el of arrayOfElRemoved){
@@ -46,8 +42,6 @@ function clearList(parent, arrayOfElRemoved) {
 
 function previousNextLogic(resultsArray, parent, dataInput, num){
 let count = num;
-
-
 switch(dataInput){
   case "previous":
 count--
@@ -61,19 +55,20 @@ case "next":
 return count
 }
 
-
-
-
-
-
-/*
-    fetch("/p")
-    .then(r => r.json())
-    .then(data => {
-        const entityNavigation = new CharacterEntityNavigation(data);
-        entityNavigation.setNavigation(navContainer);
-        // console.log(entityNavigation)
-        // console.log("Data received from server:", data);
-    })
-    .catch(err => console.error('Error fetching from server:', err));
-*/
+function carrotsHideShow(){
+    if(count === 0){
+    // add style display none to first child
+    console.log("count zero hit: state change?");
+    next.classList.remove("hidden");
+    // divBtns.firstChild.style.display = "none"
+    //  divBtns.lastChild.classList.add("end")
+}else if(count === results.length-1){
+    console.log("end of array: still state change?");
+    next.classList.add("hidden");
+// divBtns.lastChild.style.display = "none"
+}else{
+    console.log("show?")
+    prev.classList.remove("hidden");
+    next.classList.remove("hidden");
+}
+}
