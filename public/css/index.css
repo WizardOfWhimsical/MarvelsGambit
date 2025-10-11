@@ -17,15 +17,17 @@ to be replaced with cool BG image later
   z-index: -10;
 }
 
-nav{
+/* nav{
   width: 100dvw;
   height: 15dvh;
-  background-color: rgb(85, 253, 85, 0.8);
+  background: repeat center/20%  url("./assets/navBackground.png");
+  font-size:1.5em;
+  text-decoration: none;
   position: absolute;
   top:0;
   left:0; 
   z-index: -5;
-}
+} */
 
 section:first-child{
   width:35dvw;

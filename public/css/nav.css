@@ -1,6 +1,18 @@
-nav h2{
+nav{
+  width: 100dvw;
+  height: 15dvh;
+  background: repeat center/20%  url("./assets/navBackground.png");
+  font-size:1.5em;
+  text-decoration: none;
+  position: absolute;
+  top:0;
+  left:0; 
+  z-index: -5;
+}
+
+nav a{
   cursor: pointer;
 }
-nav h2:active{
+nav a:active{
   cursor: grabbing;
 }
