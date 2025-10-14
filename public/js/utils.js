@@ -12,6 +12,8 @@ async function fetchCharacterData(characterName) {
   }
 }
 
+
+
 async function fetchEntityData(entityUri) {
   try{
     const response = await fetch(`/api/entity?uri=${entityUri}`);
@@ -29,6 +31,9 @@ async function fetchEntityData(entityUri) {
     console.log("try/catch of entityData:", error)
   }
 }
+
+
+
 
 function clearList(parent, arrayOfElRemoved) {
   for(let el of arrayOfElRemoved){

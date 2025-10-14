@@ -5,10 +5,11 @@ const entityInformation = document.getElementById("characterInformation");
 async function main(){
     try{
         const data = await fetchCharacterData('Gambit')
+        console.log("gambit obj", data)
 
         const gambit = new CharacterEntityNavigation(data);
         const gambitCard = new CharacterImageCard(data);
-
+            
         gambit.setNavigation(characterNavigation);
         gambitCard.renderCharacterImage(characterCard);
     }
@@ -29,11 +30,14 @@ characterNavigation.addEventListener("click", async (e) => {
 
     let target = e.target.dataset.uri;
     console.log("Clicked on: ", target);
+
     try{    
         const response = await fetchEntityData(target)
-        console.log("response",response)
-        
-        results = await response.data.results
+
+        console.log("response obj on front end",response)
+
+        results =  response.data.results || []
+        console.log("reults of response obj",results)
 
         clearList(entityInformation, ["h3","p","em"])
 

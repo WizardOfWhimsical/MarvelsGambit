@@ -24,14 +24,15 @@ app.get("/api/characters",async (req, res) => {
    const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
 
    console.log("Root character endpoint hit");
-   
+ try{   
  const response = await fetch(url)
  console.log(response)
- if(!response.ok) {
-      console.log("ServerFetchTest: ", response.status);
-      throw new Error("Character Network response was not ok");
-   }
-   try{
+ if(!response.ok){
+         console.log("entity fetch !OK on server", response.status);
+         const text = await response.text();
+         throw new Error(`Bad response: ${response.status}, body: ${text}`);
+      }
+  
       const data = await response.json()
       console.log("Data fetched from Marvel character: ", data);
       res.status(201).json(data);
@@ -39,25 +40,30 @@ app.get("/api/characters",async (req, res) => {
 })
 
 
-app.get("/api/entity",async (req,res)=>{
+app.get("/api/entity", async (req,res)=>{
+
+ console.log("entity query", req.query)
 
    const offset = ""
    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
    console.log("Entity endpoint hit", url);
+   
+   try{
    const response = await fetch(url)
 
    if(!response.ok){
          console.log("entity fetch !OK on server", response.status);
-         const text = response.text();
+         const text = await response.text();
          throw new Error(`Bad response: ${response.status}, body: ${text}`);
       }
 
-   try{
+   
       const data = await response.json()
       console.log("Data fetched from Marvel entity: ", data);
       res.status(201).json(data);
-   }catch(err){console.log("character fetchErr", err)}  
+
+   }catch(err){console.log("entity fetchErr", err)}  
 
 })
 
