@@ -2,45 +2,65 @@ import config from "#config";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import dotenv from "dotenv";
 import md5 from "md5";
 
-dotenv.config();
-
 const app = express();
-app.use(cors());
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("./root"));
+
+app.use(
+  cors(),
+  morgan('dev'),
+  express.json(),
+  express.urlencoded({ extended: true }),
+  express.static('./public'),
+);
 
 const ts = new Date().getTime();
    const publicKey = process.env.PUBLIC_KEY;
    const privateKey = process.env.PRIVATE_KEY;
    const hash = md5(ts + privateKey + publicKey);
 
-app.get("/test", (req, res) => {
-   //will build routes based off char, comics, series, stories, events
-   const url = `https://gateway.marvel.com/v1/public/characters?name=Gambit&ts=${ts}&apikey=${publicKey}&hash=${hash}` ////character by name Gambit
+app.get("/api/characters",async (req, res) => {
+
+   const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
+
+   console.log("Root character endpoint hit");
    
-   // const url = `https://gateway.marvel.com/v1/public/characters/1009313/series?ts=${ts}&apikey=${publicKey}&hash=${hash}`////series by characterId Gambit
-      console.log("Root endpoint hit");
-   
-fetch(url)
-.then(response => {
-   console.log(url)
-   if(!response.ok) {
+ const response = await fetch(url)
+ console.log(response)
+ if(!response.ok) {
       console.log("ServerFetchTest: ", response.status);
-      throw new Error("Network response was not ok");
+      throw new Error("Character Network response was not ok");
    }
-   console.log("response ok");
-   return response.json()
+   try{
+      const data = await response.json()
+      console.log("Data fetched from Marvel character: ", data);
+      res.status(201).json(data);
+   }catch(err){console.log("character fetchErr", err)}  
 })
-.then(data =>{
-   console.log("Data fetched from Marvel: ", data);
-   res.status(201).json(data);
-} )
-});
+
+
+app.get("/api/entity",async (req,res)=>{
+
+   const offset = ""
+   const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
+
+   console.log("Entity endpoint hit", url);
+   const response = await fetch(url)
+
+   if(!response.ok){
+         console.log("entity fetch !OK on server", response.status);
+         const text = response.text();
+         throw new Error(`Bad response: ${response.status}, body: ${text}`);
+      }
+
+   try{
+      const data = await response.json()
+      console.log("Data fetched from Marvel entity: ", data);
+      res.status(201).json(data);
+   }catch(err){console.log("character fetchErr", err)}  
+
+})
+
 
 app.listen(config.port, () => {
    console.log(`Server is running on port ${config.port}`);

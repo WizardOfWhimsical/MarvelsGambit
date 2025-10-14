@@ -1,16 +1,10 @@
 @import url("./rootColor.css");
-@import url("./font.css");
 @import url("./nav.css");
 
 *{
 box-sizing:border-box;
 margin:0;
 padding:0;
-}
-
-body{
-  width: 100vw;
-  height: 100vh;
 }
 
 .flexCenter{
@@ -35,3 +29,6 @@ body{
   flex-direction: column;
 }
 
+.hidden{
+  visibility: hidden;
+}

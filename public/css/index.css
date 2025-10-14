@@ -1,0 +1,109 @@
+@import url("style.css");
+
+ body{
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgb(223, 177, 246);
+  position: relative;
+  overflow: hidden;
+  z-index: -10;
+  color:var(--marvelWhite);
+  text-shadow: 2px 3px 4px var(--gambitMagenta);
+}
+
+section:first-child{
+  width:35dvw;
+  height:75dvh;
+  background: no-repeat url("./assets/bayou.png");
+  position: absolute;
+  left:0;
+  bottom: 10dvh;
+  z-index: -5;
+}
+
+article{
+  width:65dvw;
+  height:75dvh;
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("./assets/gambitRouge.jpg")
+  center/80% no-repeat;
+  position: absolute;
+  right:0;
+  bottom: 10dvh;
+  z-index: -5;
+  overflow: auto;
+  padding:1em;
+}
+
+footer{
+  width: 100%;
+  height: 10dvh;
+  background-color: rgba(249, 235, 36, 0.932);
+  position: absolute;
+  bottom:0;
+  left:0; 
+  z-index: -5;
+  padding:1em;
+}
+
+/*
+just basic card styling
+*/
+img{
+  width: 25dvw;
+  height:35dvh;
+  margin-bottom: 1em;  
+}
+
+/*
+character information card styling
+*/
+ article h3{
+  font-size: 1.5em;
+  margin: 0.66em 0 0.33em 0;
+  padding: 0.66em;
+  margin-top: 10dvh;
+  text-align: center;
+}
+
+article p {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3em;
+  text-indent: 2em;
+  padding:0.25em;
+  margin: 0.12em;
+}
+
+article em{
+  display: inline-block;
+  font-size:12px;
+  padding:1em;
+  margin:1em;
+  line-height: 1.4em;
+}
+
+article div{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.66em;
+  margin: 1em;
+}
+article h1{
+  cursor: pointer;
+}
+article h1:hover{
+  cursor: grab;
+}
+article h1:active{
+  cursor: grabbing;
+}
+
+/*
+footer Contents
+*/
+footer em{
+  padding: 0.33em;
+  margin:0.33em;
+  font-size: 1.3em;
+}
