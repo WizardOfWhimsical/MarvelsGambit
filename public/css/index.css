@@ -11,7 +11,7 @@
   text-shadow: 2px 3px 4px var(--gambitMagenta);
 }
 
-section:first-child{
+section{
   width:35dvw;
   height:75dvh;
   background: no-repeat url("./assets/bayou.png");
@@ -52,6 +52,8 @@ just basic card styling
 img{
   width: 25dvw;
   height:35dvh;
+  max-width: 250px;
+  max-height: 225px;
   margin-bottom: 1em;  
 }
 
@@ -106,4 +108,39 @@ footer em{
   padding: 0.33em;
   margin:0.33em;
   font-size: 1.3em;
+}
+
+/*
+  MEDIA QUERYIES
+*/
+
+@media (min-width: 350px) and (max-width: 768px){
+  /* body{
+    position: relative;
+    z-index: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+  main{
+    position: relative;
+    z-index: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+
+section{
+  width:35dvw;
+  height:75dvh;
+  background: no-repeat url("./assets/bayou.png");
+  position: absolute;
+  left:0;
+  bottom: 10dvh;
+  z-index: -5;
+}
+
+
 }
