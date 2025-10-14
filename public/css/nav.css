@@ -21,6 +21,7 @@ nav a:active{
   nav{
   width: 100dvw;
   height: 10dvh;
+  /* position: sticky; */
   /* background: repeat center/20%  url("./assets/navBackground.png");
   font-size:1.25em;
   text-decoration: none;

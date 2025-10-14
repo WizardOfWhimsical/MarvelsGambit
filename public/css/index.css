@@ -115,32 +115,58 @@ footer em{
 */
 
 @media (min-width: 350px) and (max-width: 768px){
-  /* body{
-    position: relative;
-    z-index: auto;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } 
+  body{
+  /* width: 100dvw;
+  height: 100dvh;
+  background-color: rgb(223, 177, 246);
+  position: relative; */
+  overflow: auto;
+  /* z-index: -10;
+  color:var(--marvelWhite);
+  text-shadow: 2px 3px 4px var(--gambitMagenta); */
+}
   main{
-    position: relative;
-    z-index: auto;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("./assets/gambitRouge.jpg")
+  center/80% no-repeat;
+  z-index: 0;
+  }
 
 section{
-  width:35dvw;
-  height:75dvh;
-  background: no-repeat url("./assets/bayou.png");
+  width:100dvw;
+  height:80dvh;
+  background: no-repeat url("./assets/bayou.png"); 
   position: absolute;
-  left:0;
-  bottom: 10dvh;
-  z-index: -5;
+  left:0; 
+  top: 10dvh; 
+  z-index: -7;
+  padding:1em;
+
 }
 
-
+article{
+  width:100dvw;
+  height:80dvh;
+  /* background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("./assets/gambitRouge.jpg")
+  center/80% no-repeat; */
+  position: absolute;
+  right:0;
+  top: 10dvh;
+  z-index: -5;
+  overflow: auto;
+  padding:1em;
+}
+footer{
+  width: 100dvw;
+  height: 10dvh;
+  background-color: rgba(249, 235, 36, 0.932);
+  position: absolute;
+  top:90dvh;
+  left:0; 
+  z-index: -5;
+  padding:1em;
+  font-size: 1em;
+  /* position: static; */
+}
 }

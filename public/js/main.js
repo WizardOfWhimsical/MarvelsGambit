@@ -33,7 +33,7 @@ characterNavigation.addEventListener("click", async (e) => {
         const response = await fetchEntityData(target)
         console.log("response",response)
         
-        results = response.data.results
+        results = await response.data.results
 
         clearList(entityInformation, ["h3","p","em"])
 
