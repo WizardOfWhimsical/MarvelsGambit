@@ -39,32 +39,53 @@ app.get("/api/characters",async (req, res) => {
    }catch(err){console.log("character fetchErr", err)}  
 })
 
+// app.get("/api/entity",(req,res)=>{
+
+//    const offset = ""
+//    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
+
+//    console.log("Entity endpoint hit", url);
+
+//    console.log("Entity endpoint hit with uri: ", req.query.uri);
+//    console.log("query check:", req.query)
+
+//    fetch(url)
+//    .then(response=>{
+//     if(!response.ok){
+//          console.log("entity fetch !OK on server", response.status);
+//          const text = response.text();
+//          throw new Error(`Bad response: ${response.status}, body: ${text}`);
+//       }
+//       return response.json();
+//    })
+//    .then(data =>{
+//       console.log("Entity data fetched from Marvel: ", data);
+//  res.status(201).json(data);
+//    })
+//    .catch(err=>{
+//       console.log("Error fetching entity data SERVERSIDE:", err);
+//       res.status(500).json({error: err.message});
+//    })
+// })
+
 
 app.get("/api/entity", async (req,res)=>{
-
  console.log("entity query", req.query)
-
    const offset = ""
    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
-
    console.log("Entity endpoint hit", url);
-   
    try{
    const response = await fetch(url)
-
    if(!response.ok){
          console.log("entity fetch !OK on server", response.status);
          const text = await response.text();
          throw new Error(`Bad response: ${response.status}, body: ${text}`);
       }
-
-   
       const data = await response.json()
       console.log("Data fetched from Marvel entity: ", data);
       res.status(201).json(data);
 
    }catch(err){console.log("entity fetchErr", err)}  
-
 })
 
 

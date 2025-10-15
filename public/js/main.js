@@ -34,7 +34,7 @@ characterNavigation.addEventListener("click", async (e) => {
     try{    
         const response = await fetchEntityData(target)
 
-        console.log("response obj on front end",response)
+        console.log("response obj on front end", response)
 
         results =  response.data.results || []
         console.log("reults of response obj",results)
