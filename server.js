@@ -14,12 +14,15 @@ app.use(
   express.static('./public'),
 );
 
-const ts = new Date().getTime();
+
    const publicKey = process.env.PUBLIC_KEY;
    const privateKey = process.env.PRIVATE_KEY;
-   const hash = md5(ts + privateKey + publicKey);
+
 
 app.get("/api/characters",async (req, res) => {
+
+   const ts = new Date().getTime();
+   const hash = md5(ts + privateKey + publicKey);
 
    const url = `https://gateway.marvel.com/v1/public/characters?name=${req.query.name}&ts=${ts}&apikey=${publicKey}&hash=${hash}` 
 
@@ -41,6 +44,9 @@ app.get("/api/characters",async (req, res) => {
 
 app.get("/api/entity",async (req,res)=>{
 
+   const ts = new Date().getTime();
+   const hash = md5(ts + privateKey + publicKey);
+
    const offset = ""
    const url = `${req.query.uri}?${offset}ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
@@ -49,8 +55,7 @@ app.get("/api/entity",async (req,res)=>{
 
    if(!response.ok){
          console.log("entity fetch !OK on server", response.status);
-         const text = response.text();
-         throw new Error(`Bad response: ${response.status}, body: ${text}`);
+         throw new Error(`Bad response: ${response.status}, body: ${response.text()}`);
       }
 
    try{

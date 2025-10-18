@@ -68,3 +68,9 @@ function carrotsHideShow(){
     next.classList.remove("hidden");
 }
 }
+// function loadingUI(btn){
+//   const originalText = btn.textContent;
+//   btn.textContent = "Loading...";
+//   btn.disabled = true;
+//   return originalText;
+// }
