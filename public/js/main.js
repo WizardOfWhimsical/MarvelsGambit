@@ -77,7 +77,7 @@ characterNavigation.addEventListener("click", async (e) => {
 
     entityInformation.innerHTML = `<div id="error-container" style="position: relative; color: #ff4444; padding: 20px; background: #ffe6e6; border-radius: 8px; text-align: center; max-width: 400px; margin: 2em auto;">
   <span 
-    onclick="document.getElementById('error-container').remove()" 
+    onclick="location.reload()" 
     style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5em; color: #ff4444; font-weight: bold;">
     &times;
   </span>
