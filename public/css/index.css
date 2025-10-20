@@ -11,7 +11,7 @@
   text-shadow: 2px 3px 4px var(--gambitMagenta);
 }
 
-section:first-child{
+section{
   width:35dvw;
   height:75dvh;
   background: no-repeat url("./assets/bayou.png");
@@ -52,6 +52,8 @@ just basic card styling
 img{
   width: 25dvw;
   height:35dvh;
+  max-width: 250px;
+  max-height: 225px;
   margin-bottom: 1em;  
 }
 
@@ -106,4 +108,65 @@ footer em{
   padding: 0.33em;
   margin:0.33em;
   font-size: 1.3em;
+}
+
+/*
+  MEDIA QUERYIES
+*/
+
+@media (min-width: 350px) and (max-width: 768px){
+  body{
+  /* width: 100dvw;
+  height: 100dvh;
+  background-color: rgb(223, 177, 246);
+  position: relative; */
+  overflow: auto;
+  /* z-index: -10;
+  color:var(--marvelWhite);
+  text-shadow: 2px 3px 4px var(--gambitMagenta); */
+}
+  main{
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("./assets/gambitRouge.jpg")
+  center/80% no-repeat;
+  z-index: 0;
+  }
+
+section{
+  width:100dvw;
+  height:80dvh;
+  background: no-repeat url("./assets/bayou.png"); 
+  position: absolute;
+  left:0; 
+  top: 10dvh; 
+  z-index: -7;
+  padding:1em;
+
+}
+
+article{
+  width:100dvw;
+  height:80dvh;
+  /* background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("./assets/gambitRouge.jpg")
+  center/80% no-repeat; */
+  position: absolute;
+  right:0;
+  top: 10dvh;
+  z-index: -5;
+  overflow: auto;
+  padding:1em;
+}
+footer{
+  width: 100dvw;
+  height: 10dvh;
+  background-color: rgba(249, 235, 36, 0.932);
+  position: absolute;
+  top:90dvh;
+  left:0; 
+  z-index: -5;
+  padding:1em;
+  font-size: 1em;
+  /* position: static; */
+}
 }

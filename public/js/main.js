@@ -5,10 +5,11 @@ const entityInformation = document.getElementById("characterInformation");
 async function main(){
     try{
         const data = await fetchCharacterData('Gambit')
+        console.log("gambit obj", data)
 
         const gambit = new CharacterEntityNavigation(data);
         const gambitCard = new CharacterImageCard(data);
-
+            
         gambit.setNavigation(characterNavigation);
         gambitCard.renderCharacterImage(characterCard);
     }
@@ -17,23 +18,39 @@ async function main(){
 }
 main()
 
-
 let count = 0;
 let results;
 
 const divBtns = entityInformation.querySelector("div");
 const prev = document.getElementById("previous");
 const next = document.getElementById("next");
+let originalText;
 
 characterNavigation.addEventListener("click", async (e) => {
 
     let target = e.target.dataset.uri;
+    let btn = e.target
     console.log("Clicked on: ", target);
+                                                                                            
+    const originalText = btn.textContent;
+    btn.textContent = "Loading...";
+    btn.disabled = true;
+
+
     try{    
         const response = await fetchEntityData(target)
         console.log("response",response)
         
-        results = response.data.results
+        const data = await response
+
+        //check is data is good
+        if(!data?.data?.results?.[0]){
+            throw new Error("No Character Events/Series data found")
+        }
+
+        console.log("✅ Data received from server:", data);
+
+        results = data.data.results
 
         clearList(entityInformation, ["h3","p","em"])
 
@@ -41,10 +58,38 @@ characterNavigation.addEventListener("click", async (e) => {
 
         eventData.renderEntityInformation(entityInformation)
 
-        carrotsHideShow()   
+        carrotsHideShow() 
+        
+        btn.textContent = "✅ Information Loaded!";
+        setTimeout(()=>{
+            btn.textContent = originalText;
+            btn.disabled = false;
+        },2000)
+        
     }catch(err){
-        console.log(err)
-    }
+        console.log("❌ Error:", err);
+
+    entityInformation.innerHTML = `<div id="error-container" style="position: relative; color: #ff4444; padding: 20px; background: #ffe6e6; border-radius: 8px; text-align: center; max-width: 400px; margin: 2em auto;">
+  <span 
+    onclick="location.reload()" 
+    style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5em; color: #ff4444; font-weight: bold;">
+    &times;
+  </span>
+  <h3 style="margin-top: 10px;">Error Loading Character</h3>
+  <div style="margin: 10px 3em; font-size: 1.5em; text-align: center; text-indent: 0;">
+    ${err.message}
+  </div>
+  <h6 style="position: absolute; bottom: 5px; left: -5; font-size: 1em; color: #ff4444;">
+    Closing the window will reload the page, try again.
+  </h6>
+</div>`
+
+    btn.textContent = `❌ ${err.message}`
+    setTimeout(()=>{
+                btn.textContent = originalText;
+                btn.disabled = false;
+            },2000)
+        }
     })
 
 
@@ -59,19 +104,3 @@ divBtns.addEventListener("click",(e)=>{
     carrotsHideShow()
 
 })
-
-
-
-     
-
-
-
-
-
-
-
-
-/**
- * adding eventlisterner i think wll be smater on this page or utils.js, talk with mentor and find out
- * 
- */
