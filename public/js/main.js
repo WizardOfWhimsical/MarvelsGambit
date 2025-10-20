@@ -86,7 +86,7 @@ characterNavigation.addEventListener("click", async (e) => {
     ${err.message}
   </div>
   <h6 style="position: absolute; bottom: 5px; left: -5; font-size: 1em; color: #ff4444;">
-    Please try selecting another option, or refresh the page after closing this notice.
+    Closing the window will reload the page, try again.
   </h6>
 </div>`
 
