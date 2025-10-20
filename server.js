@@ -14,10 +14,8 @@ app.use(
   express.static('./public'),
 );
 
-
-   const publicKey = process.env.PUBLIC_KEY;
-   const privateKey = process.env.PRIVATE_KEY;
-
+const publicKey = process.env.PUBLIC_KEY;
+const privateKey = process.env.PRIVATE_KEY;
 
 app.get("/api/characters",async (req, res) => {
 

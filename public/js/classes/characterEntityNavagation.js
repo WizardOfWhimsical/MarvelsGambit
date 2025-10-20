@@ -7,8 +7,6 @@ class CharacterEntityNavigation {
     const series = document.createElement("a");
     const events = document.createElement("a");
 
-
-
     series.setAttribute("data-uri", this.seriesURI);
     series.textContent = "Series";
 
