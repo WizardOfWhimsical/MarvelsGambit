@@ -22,7 +22,7 @@ class EntityInformation {
 
     title.textContent = `${this.title}`
     if(this.description === null){
-      this.description = "No description provided. Sorry :'-("
+      this.description = "No description provided. Sorry :cry:"
     }
     descriptionParagraph.textContent = `${this.description}`
     startEndDates.textContent = `Stat: ${start} - End: ${end}`;

@@ -75,13 +75,28 @@ characterNavigation.addEventListener("click", async (e) => {
     }catch(err){
         console.log("❌ Error:", err);
 
-    entityInformation.innerHTML = `<div style="color: #ff4444; padding: 20px; background: #ffe6e6; border-radius: 8px; text-align: center;">
-                    <h3 style="margin-top: 0;">❌ Error Loading Character</h3>
-                    <p style="margin: 10px 3em; font-size: 1.5em; text-align: center;">${err.message}</p>
-                    <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer; background: #ff4444; color: white; border: none; border-radius: 4px; font-size: 14px;">
-                        🔄 Try Again
-                    </button>
-                </div>`
+    entityInformation.innerHTML = `<div id="error-container" style="position: relative; color: #ff4444; padding: 20px; background: #ffe6e6; border-radius: 8px; text-align: center; max-width: 400px; margin: 2em auto;">
+  <span 
+    onclick="document.getElementById('error-container').remove()" 
+    style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5em; color: #ff4444; font-weight: bold;">
+    &times;
+  </span>
+  <h3 style="margin-top: 10px;">Error Loading Character</h3>
+  <div style="margin: 10px 3em; font-size: 1.5em; text-align: center; text-indent: 0;">
+    ${err.message}
+  </div>
+  <h6 style="position: absolute; bottom: 5px; left: -5; font-size: 1em; color: #ff4444;">
+    Please try selecting another option, or refresh the page after closing this notice.
+  </h6>
+</div>`
+
+    // entityInformation.innerHTML = `<div style="color: #ff4444; padding: 20px; background: #ffe6e6; border-radius: 8px; text-align: center;">
+    //                 <h3 style="margin-top: 0;">❌ Error Loading Character</h3>
+    //                 <p style="margin: 10px 3em; font-size: 1.5em; text-align: center;">${err.message}</p>
+    //                 <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer; background: #ff4444; color: white; border: none; border-radius: 4px; font-size: 14px;">
+    //                     🔄 Try Again
+    //                 </button>
+    //             </div>`
     btn.textContent = `❌ ${err.message}`
     setTimeout(()=>{
                 btn.textContent = originalText;
